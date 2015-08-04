@@ -1,0 +1,41 @@
+body {
+	padding: 1%;
+}
+
+.wrapper {
+	float: left;
+	margin: 2.666666%;
+	width: 20%;
+	padding: 4%;
+	background-color: beige;
+}
+
+p, h1, h2 {
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+p {
+	font-size: 1.4em;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+input {
+	padding: 5px;
+}
+
+button {
+	padding: 5px;
+}
+
+p.bad {
+	color: red;
+	font-size: 0.8em;
+	margin: 0.4em;	
+}

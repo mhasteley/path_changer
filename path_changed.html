@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <link rel="stylesheet" href="path_changer.css"></link>
+    </head>
+    
+    <body>
+        <h1>Path Convertor</h1>
+        <div class="wrapper" id="first">
+            <h2>Windows</h2>
+            <input id="winIn" placeholder="Paste Windows UNC here"></input>
+            <button id="winBut">Go</button>
+            <p class="bad" id="winError"></p>
+            <p>Linux Path:</p>
+            <p id="winResultLin">&nbsp;</p>
+            <p>OSX Path:</p>
+            <p id="winResultOSX">&nbsp;</p>
+        </div>
+        <div class="wrapper" id="second">
+            <h2>Linux</h2>
+            <input id="linIn" placeholder="Paste Linux UNC here"></input>
+            <button id="linBut">Go</button>
+            <p class="bad" id="linError"></p>
+            <p>Windows Path:</p>
+            <p id="linResultWin">&nbsp;</p>
+            <p>OSX Path:</p>
+            <p id="linResultOSX">&nbsp;</p>
+        </div>
+        <div class="wrapper" id="third">
+            <h2>OS X</h2>
+            <input id="osxIn" placeholder="Paste Windows UNC here"></input>
+            <button id="osxBut">Go</button>
+            <p class="bad" id="osxError"></p>
+            <p>Linux Path:</p>
+            <p id="osxResultLin">&nbsp;</p>
+            <p>Windows Path:</p>
+            <p id="osxResultWin">&nbsp;</p>
+        </div>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script type="text/javascript" src="path_changer.js"></script>
+    </body>
+
+</html>
