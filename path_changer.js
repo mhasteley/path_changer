@@ -40,11 +40,11 @@ $("#linBut").click(
 
 $("#osxBut").click(
 	function checkerOSX() {
-		var pathStart = "/volumes/";
-		if ($("#osxIn").val().indexOf(pathStart) > -1) {
+		var pathStart = "\/volumes\/";
+		if ($("#osxIn").val().toLowerCase().indexOf(pathStart) > -1) {
 			var str = $("#osxIn").val();
-			var resLin = str.replace(pathStart, "smb://");
-			var resWin = str.replace(pathStart, "\\\\sol\\").replace(/\//g, "\\");
+			var resLin = str.toLowerCase().replace(pathStart, "smb://");
+			var resWin = str.toLowerCase().replace(pathStart, "\\\\sol\\").replace(/\//g, "\\");
 			$("#osxResultLin").html(resLin);
 			$("#osxResultWin").html(resWin);
 			$(this).next(".bad").html("");
@@ -54,3 +54,26 @@ $("#osxBut").click(
 		}
 	}
 	);
+
+/*
+$("#allBut").click(
+	function checkerAll() {
+		var pathStartWin = "\\\\sol\\";
+		var pathStartLin = "smb://";
+		var pathStartOSX = "\/volumes\/";
+		if ($("#allIn").val().toLowerCase() == pathStartWin) {
+			var str = $("#allIn").val();
+			var resWin = str.toLowerCase().replace(pathStart, "\\\\sol\\").replace(/\//g, "\\");
+			var resLin = str.toLowerCase().replace(pathStart, "smb://");
+			var resOSX = str.replace(pathStart, "\/volumes\/");
+			$("#allResultWin").html(resWin);
+			$("#allResultLin").html(resLin);
+			$("#allResultOSX").html(resOSX);
+			$(this).next(".bad").html("");
+		}
+		else {
+			itWentBadly(this, "#osxResultLin", "#osxResultWin")
+		}
+	}
+	);
+	*/
