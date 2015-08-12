@@ -1,13 +1,6 @@
 body {
 	padding: 1%;
-}
-
-.wrapper {
-	float: left;
-	margin: 2.666666%;
-	width: 20%;
-	padding: 4%;
-	background-color: beige;
+	text-align: center;
 }
 
 p, h1, h2 {
@@ -34,8 +27,56 @@ button {
 	padding: 5px;
 }
 
-p.bad {
+.bad p {
 	color: red;
 	font-size: 0.8em;
 	margin: 0.4em;	
+}
+
+.result p {
+	font-size: 1.0em;
+	font-weight: bold;
+}
+
+.win {
+	color: #ff8300;	
+}
+
+.lin {
+	color: #ff0055;	
+}
+
+.osx {
+	color: #aa00ee;	
+}
+
+.wrapper {
+	float: left;
+	margin: 2.666666%;
+	width: 20%;
+	padding: 4%;
+	background-color: #eeeeee;
+	text-align: left;
+}
+
+div.result {
+	padding: 0.1em 1.0em;
+}
+
+div.active {
+	background-color: #ffffff;
+	border-bottom: 0.2em solid #888888;
+}
+
+div.bad {
+	float: left;
+	position: relative;
+	width: 96%;
+	padding: 2%;
+	z-index: 100;
+	margin: 2% 0px;
+}
+
+div.bad.overlay {
+	background-color: rgba(0,0,0,0.1);
 }

@@ -9,38 +9,51 @@
     <body>
         <h1>Path Convertor</h1>
         <div class="wrapper" id="first">
-            <h2>Windows</h2>
+            <h2 class="win">Windows</h2>
             <input id="winIn" placeholder="Paste Windows UNC here"></input>
             <button id="winBut">Go</button>
-            <p class="bad" id="winError"></p>
+            <div class="bad">
+                <p id="winError"></p>
+            </div>
             <p>Linux Path:</p>
-            <p id="winResultLin">&nbsp;</p>
+            <div class="result">
+                <p class="lin" id="winResultLin">&nbsp;</p>
+            </div>
             <p>OSX Path:</p>
-            <p id="winResultOSX">&nbsp;</p>
+            <div class="result">
+                <p class="osx" id="winResultOSX">&nbsp;</p>
+            </div>
         </div>
         <div class="wrapper" id="second">
-            <h2>Linux</h2>
+            <h2 class="lin">Linux</h2>
             <input id="linIn" placeholder="Paste Linux UNC here"></input>
             <button id="linBut">Go</button>
             <p class="bad" id="linError"></p>
             <p>Windows Path:</p>
-            <p id="linResultWin">&nbsp;</p>
+            <div class="result">
+                <p class="win" id="linResultWin">&nbsp;</p>
+            </div>
             <p>OSX Path:</p>
-            <p id="linResultOSX">&nbsp;</p>
+            <div class="result">
+                <p class="osx" id="linResultOSX">&nbsp;</p>
+            </div>
         </div>
         <div class="wrapper" id="third">
-            <h2>OS X</h2>
+            <h2 class="osx">OS X</h2>
             <input id="osxIn" placeholder="Paste Windows UNC here"></input>
             <button id="osxBut">Go</button>
             <p class="bad" id="osxError"></p>
             <p>Linux Path:</p>
-            <p id="osxResultLin">&nbsp;</p>
+            <div class="result">
+                <p class="lin" id="osxResultLin">&nbsp;</p>
+            </div>
             <p>Windows Path:</p>
-            <p id="osxResultWin">&nbsp;</p>
+            <div class="result">
+                <p class="win" id="osxResultWin">&nbsp;</p>
+            </div>
         </div>
         <!-- Multi -->
-        <!--
-        <div class="wrapper" id="four">
+        <!-- <div class="wrapper" id="four">
             <h2>OS X</h2>
             <input id="allIn" placeholder="Paste path here"></input>
             <button id="allBut">Go</button>
