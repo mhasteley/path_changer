@@ -14,13 +14,27 @@
         <h2>All</h2>
         <input id="allIn" placeholder="Paste path here"></input>
         <button id="allBut">Go</button>
-        <p class="bad" id="allError"></p>
-        <p>Windows Path:</p>
-        <p id="allResultWin">&nbsp;</p>
-        <p>Linux Path:</p>
-        <p id="allResultLin">&nbsp;</p>
-        <p>OSX Path:</p>
-        <p id="allResultOSX">&nbsp;</p>
+        <div class="bad">
+            <p id="allError">Error - this is the wrong syntax for a filesystem path, please one in the form "\\server\share\folder", "connectiontype://server/share/folder" or "/volumes/share/folder"</p>
+        </div>
+        <div class="win">
+            <p>Windows Path:</p>
+            <div class="result">
+                <p class="win" id="allResultWin">&nbsp;</p>
+            </div>
+        </div>
+        <div class="lin">
+            <p>OSX/Linux connect to server:</p>
+            <div class="result">
+                <p class="lin" id="allResultLin">&nbsp;</p>
+            </div>
+        </div>
+        <div class="osx">
+            <p>OSX Path:</p>
+            <div class="result">
+                <p id="allResultOSX">&nbsp;</p>
+            </div>
+        </div>
     </div>
 
     <!-- Single -->
@@ -71,7 +85,7 @@
         </div>
 <<<<<<< HEAD
         <!-- Multi -->
-        <!-- <div class="wrapper" id="four">
+    <!-- <div class="wrapper" id="four">
             <h2>OS X</h2>
             <input id="allIn" placeholder="Paste path here"></input>
             <button id="allBut">Go</button>

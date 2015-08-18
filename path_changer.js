@@ -1,59 +1,38 @@
-<<<<<<< HEAD
-var itWentBadly = function fail(a, resultOne, resultTwo) {
-	$(a).next("div").addClass("overlay").addClass("active").children("p").html("Error - this is the wrong syntax for this type of path, try one of the others");
-=======
-var itWentBadly = function itWentBadly(what, resultOne, resultTwo) {
-	$(what).next(".bad").html("Error - this is the wrong syntax for a filesystem path, try one of the others");
->>>>>>> origin/master
+var itWentBadly = function fail(what, resultOne, resultTwo) {
+	$("div.bad").addClass("overlay").addClass("active");
 	$(resultOne).html("&nbsp;");
 	$(resultTwo).html("&nbsp;");
+	$("div.result").removeClass("active");
 };
 
-<<<<<<< HEAD
-var winPathStart = "\\\\sol\\";
-var linPathStart = "smb://";
-var osxPathStart = "/volumes/";
-
-$("#winBut").click(
-	function checkerWin() {
-		var pathStart = winPathStart;
-		var pathCheck = winPathStart;
-		if ($("#winIn").val().toLowerCase().indexOf(pathStart) > -1) {
-			var str = $("#winIn").val();
-			var res = str.substr(pathCheck.length);
-			var resLinux = res.replace(pathCheck, "smb://").replace(/\\/g, "/");
-			var resOSX = res.replace(pathCheck, "/volumes/").replace(/\\/g, "/");
-			$("#winResultLin").html(linPathStart + resLinux);
-			$("#winResultOSX").html(osxPathStart + resOSX);
-			$("#winResultLin").parent("div").addClass("active");
-			$("#winResultOSX").parent("div").addClass("active");
-=======
 $("#allBut").click(
 	function checkerAll() {
+		var pathStart = ["\\\\sol\\", "smb://", "\/volumes\/"];
 		var test = function test(platform) {
 			var str = $("#allIn").val();
 			var pathStart = ["\\\\sol\\", "smb://", "\/volumes\/"];
 			var results = ["#allResultWin", "#allResultLin", "#allResultOSX"];
-			var resWin = str.toLowerCase().replace(pathStart[platform], pathStart[0]).replace(/\//g, "\\");
-			var resLin = str.toLowerCase().replace(pathStart[platform], pathStart[1]);
-			var resOSX = str.replace(pathStart[platform], pathStart[2]);
+			var resWin = str.toLowerCase().replace(platform, pathStart[0]).replace(/\//g, "\\");
+			var resLin = str.toLowerCase().replace(platform, pathStart[1]).replace(/\\/g, "\/");
+			var resOSX = str.toLowerCase().replace(platform, pathStart[2]).replace(/\\/g, "\/");
 			$(results[0]).html(resWin);
 			$(results[1]).html(resLin);
 			$(results[2]).html(resOSX);
 			$(this).next(".bad").html("");
+			$("div.result").addClass("active");
+			$("div.bad.overlay.active").removeClass("overlay").removeClass("active");
 		}
 		if ($("#allIn").val().toLowerCase().substr(0, 6) == pathStart[0].substr(0, 6)) {
-			test(1);
+			test("\\\\sol\\");
 		}
 		else if ($("#allIn").val().toLowerCase().substr(0, 6) == pathStart[1].substr(0, 6)) {
-			test(2);
+			test("smb://");
 		}
 		else if ($("#allIn").val().toLowerCase().substr(0, 9) == pathStart[2].substr(0, 9)) {
-			test(3);
+			test("\/volumes\/");
 		}
 		else {
 			itWentBadly(this, "#osxResultLin", "#osxResultWin");
-			/* alert(pathStart[0].substr(0, 6)); */
 		}
 	}
 	);
@@ -75,6 +54,7 @@ $("#winBut").click(
 		else {
 			itWentBadly(this, "#winResultLin", "#winResultOSX")
 			$("div").removeClass("active");
+			alert(pathStart[0].substr(0, 6));
 		}
 	}
 	);
