@@ -7,16 +7,18 @@ function itWentBadly(what, resultOne, resultTwo) {
 
 function checkerAll() {
 	var alpha = $("#allIn").val().toLowerCase();
-	var winMatch = alpha.match(/\\\\[A-Za-z0-9]*\\[A-Za-z0-9]*/);
-	var linMatch = alpha.match(/[A-Za-z0-9]*\:\/\/[A-Za-z0-9]*/);
-	var osxMatch = alpha.match(/\/volumes\/[A-Za-z0-9]*/);
-	var pathStart = ["\\\\", "\\", "://", "\/volumes\/"];
+	var beta = $("#windowsServer").val().toLowerCase();
+	var winMatch = alpha.indexOf(alpha.match(/\\\\[A-Za-z0-9]*\\[A-Za-z0-9]/));
+	var winLength = alpha.length;
+	var linMatch = alpha.indexOf(alpha.match(/[A-Za-z0-9]*\:\/\/[A-Za-z0-9]/));
+	var osxMatch = alpha.indexOf(alpha.match(/\/volumes\/[A-Za-z0-9]*/));
+	var pathStart = ["\\\\", "\\", "smb\://", "\/volumes\/"];
 	var test = function test(platform) {
-		var beta = $("#allIn").val().toLowerCase();
+		var gamma = $("#allIn").val().toLowerCase();
 		var results = ["#allResultWin", "#allResultLin", "#allResultOSX"];
-		var resWin = beta.replace(platform, pathStart[0].concat(alpha.substr(2, winMatch.length - 3)).concat(pathStart[1])).replace(/\//g, "\\");
-		var resLin = beta.replace(platform, pathStart[2]).replace(/\\/g, "\/");
-		var resOSX = beta.replace(platform, pathStart[3]).replace(/\\/g, "\/");
+		var resWin = gamma.replace(platform, pathStart[0].concat(beta).concat(pathStart[1])).replace(/\//g, "\\");
+		var resLin = gamma.replace(platform, pathStart[2]).replace(/\\/g, "\/");
+		var resOSX = gamma.replace(platform, pathStart[3]).replace(/\\/g, "\/");
 		$(results[0]).html(resWin);
 		$(results[1]).html(resLin);
 		$(results[2]).html(resOSX);
@@ -24,16 +26,13 @@ function checkerAll() {
 		$("div.result").addClass("active");
 		$("div.bad.overlay.active").removeClass("overlay").removeClass("active");
 	}
-	if (winMatch) {
+	if (winMatch == 0) {
 		test(/\\\\[A-Za-z0-9]*\\/);
-		// var stri = ;
-		alert($("#allIn").val().toLowerCase().match(/\\\\[A-Za-z0-9]*\\[A-Za-z0-9]*/));
-		// $("#allIn").val().toLowerCase().substr(2, stri)
 	}
-	else if (linMatch) {
+	else if (linMatch == 0) {
 		test(/[A-Za-z0-9]*\:\/\//);
 	}
-	else if (osxMatch) {
+	else if (osxMatch == 0) {
 		test(/\/volumes\//);
 	}
 	else {
@@ -41,9 +40,9 @@ function checkerAll() {
 	}
 };
 
-$("#allIn").keypress(function(e) {
-    if(e.which == 13) {
-    $("#allBut").click();
+$("#allIn").keypress(function (e) {
+    if (e.which == 13) {
+		$("#allBut").click();
     }
 });
 $("#allBut").click(checkerAll);

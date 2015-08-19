@@ -50,6 +50,11 @@ button {
 	color: #aa00ee;	
 }
 
+.note {
+	font-size: 0.9em;
+	margin: 10px 0px 5px 0px;
+}
+
 .wrapper {
 	float: left;
 	margin: 5%;
@@ -82,4 +87,9 @@ div.bad {
 
 div.bad.overlay {
 	background-color: rgba(0,0,0,0.1);
+}
+
+#windowsServer {
+	margin: 0px 0px 5px 0px;
+	width:20%;
 }

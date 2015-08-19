@@ -14,9 +14,10 @@
         <h2>All</h2>
         <input type="text" id="allIn" placeholder="Paste path here"></input>
         <button type="button" id="allBut">Go</button>
+        <p class="note">Windows server name: </p><input type="text" id="windowsServer" value="sol"></input>
         <div class="bad">
             <p id="allError">Error - this is the wrong syntax for a filesystem path, please one in the form <span class="win">"\\server\share\folder"</span>,
-                <span class="lin">"connectiontype://server/share/folder"</span> or <span class="osx">"/volumes/share/folder"</span></p>
+                <span class="lin">"smb://server/share/folder"</span> or <span class="osx">"/volumes/share/folder"</span></p>
         </div>
         <div class="win">
             <p>Windows Path:</p>
@@ -25,7 +26,7 @@
             </div>
         </div>
         <div class="lin">
-            <p>OSX/Linux connect to server:</p>
+            <p>SMB connect to server:</p>
             <div class="result">
                 <p class="lin" id="allResultLin">&nbsp;</p>
             </div>
