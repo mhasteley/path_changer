@@ -6,14 +6,17 @@ function itWentBadly(what, resultOne, resultTwo) {
 };
 
 function checkerAll() {
-	var pathStart = ["\\\\sol\\", "smb://", "\/volumes\/"];
+	var alpha = $("#allIn").val().toLowerCase();
+	var winMatch = alpha.match(/\\\\[A-Za-z0-9]*\\[A-Za-z0-9]*/);
+	var linMatch = alpha.match(/[A-Za-z0-9]*\:\/\/[A-Za-z0-9]*/);
+	var osxMatch = alpha.match(/\/volumes\/[A-Za-z0-9]*/);
+	var pathStart = ["\\\\", "\\", "://", "\/volumes\/"];
 	var test = function test(platform) {
-		var str = $("#allIn").val();
-		var pathStart = ["\\\\sol\\", "smb://", "\/volumes\/"];
+		var beta = $("#allIn").val().toLowerCase();
 		var results = ["#allResultWin", "#allResultLin", "#allResultOSX"];
-		var resWin = str.toLowerCase().replace(platform, pathStart[0]).replace(/\//g, "\\");
-		var resLin = str.toLowerCase().replace(platform, pathStart[1]).replace(/\\/g, "\/");
-		var resOSX = str.toLowerCase().replace(platform, pathStart[2]).replace(/\\/g, "\/");
+		var resWin = beta.replace(platform, pathStart[0].concat(alpha.substr(2,2)).concat(pathStart[1])).replace(/\//g, "\\");
+		var resLin = beta.replace(platform, pathStart[2]).replace(/\\/g, "\/");
+		var resOSX = beta.replace(platform, pathStart[3]).replace(/\\/g, "\/");
 		$(results[0]).html(resWin);
 		$(results[1]).html(resLin);
 		$(results[2]).html(resOSX);
@@ -21,14 +24,15 @@ function checkerAll() {
 		$("div.result").addClass("active");
 		$("div.bad.overlay.active").removeClass("overlay").removeClass("active");
 	}
-	if ($("#allIn").val().toLowerCase().substr(0, 6) == pathStart[0].substr(0, 6)) {
-		test("\\\\sol\\");
+	if (winMatch) {
+		test(/\\\\[A-Za-z0-9]*\\/);
+		// alert($("#allIn").val().toLowerCase().match(/\\\\[A-Za-z0-9]*\\[A-Za-z0-9]*/));
 	}
-	else if ($("#allIn").val().toLowerCase().substr(0, 6) == pathStart[1].substr(0, 6)) {
-		test("smb://");
+	else if (linMatch) {
+		test(/[A-Za-z0-9]*\:\/\//);
 	}
-	else if ($("#allIn").val().toLowerCase().substr(0, 9) == pathStart[2].substr(0, 9)) {
-		test("\/volumes\/");
+	else if (osxMatch) {
+		test(/\/volumes\//);
 	}
 	else {
 		itWentBadly(this, "#osxResultLin", "#osxResultWin");
