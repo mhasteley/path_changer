@@ -14,7 +14,7 @@ function checkerAll() {
 	var test = function test(platform) {
 		var beta = $("#allIn").val().toLowerCase();
 		var results = ["#allResultWin", "#allResultLin", "#allResultOSX"];
-		var resWin = beta.replace(platform, pathStart[0].concat(alpha.substr(2,2)).concat(pathStart[1])).replace(/\//g, "\\");
+		var resWin = beta.replace(platform, pathStart[0].concat(alpha.substr(2, winMatch.length - 3)).concat(pathStart[1])).replace(/\//g, "\\");
 		var resLin = beta.replace(platform, pathStart[2]).replace(/\\/g, "\/");
 		var resOSX = beta.replace(platform, pathStart[3]).replace(/\\/g, "\/");
 		$(results[0]).html(resWin);
@@ -26,7 +26,9 @@ function checkerAll() {
 	}
 	if (winMatch) {
 		test(/\\\\[A-Za-z0-9]*\\/);
-		// alert($("#allIn").val().toLowerCase().match(/\\\\[A-Za-z0-9]*\\[A-Za-z0-9]*/));
+		// var stri = ;
+		alert($("#allIn").val().toLowerCase().match(/\\\\[A-Za-z0-9]*\\[A-Za-z0-9]*/));
+		// $("#allIn").val().toLowerCase().substr(2, stri)
 	}
 	else if (linMatch) {
 		test(/[A-Za-z0-9]*\:\/\//);
