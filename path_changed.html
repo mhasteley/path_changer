@@ -9,11 +9,11 @@
 <body>
     <h1>Path Convertor</h1>
 
-    <!-- Multi -->
+    <!-- Multi-input-box -->
     <div class="wrapper" id="four">
         <h2>All</h2>
         <input id="allIn" placeholder="Paste path here"></input>
-        <button id="allBut">Go</button>
+        <button type="button" id="allBut">Go</button>
         <div class="bad">
             <p id="allError">Error - this is the wrong syntax for a filesystem path, please one in the form <span class="win">"\\server\share\folder"</span>,
                 <span class="lin">"connectiontype://server/share/folder"</span> or <span class="osx">"/volumes/share/folder"</span></p>
@@ -37,70 +37,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Single -->
-    <!--
-        <div class="wrapper" id="first">
-            <h2 class="win">Windows</h2>
-            <input id="winIn" placeholder="Paste Windows UNC here"></input>
-            <button id="winBut">Go</button>
-            <div class="bad">
-                <p id="winError"></p>
-            </div>
-            <p>Linux Path:</p>
-            <div class="result">
-                <p class="lin" id="winResultLin">&nbsp;</p>
-            </div>
-            <p>OSX Path:</p>
-            <div class="result">
-                <p class="osx" id="winResultOSX">&nbsp;</p>
-            </div>
-        </div>
-        <div class="wrapper" id="second">
-            <h2 class="lin">Linux</h2>
-            <input id="linIn" placeholder="Paste Linux UNC here"></input>
-            <button id="linBut">Go</button>
-            <p class="bad" id="linError"></p>
-            <p>Windows Path:</p>
-            <div class="result">
-                <p class="win" id="linResultWin">&nbsp;</p>
-            </div>
-            <p>OSX Path:</p>
-            <div class="result">
-                <p class="osx" id="linResultOSX">&nbsp;</p>
-            </div>
-        </div>
-        <div class="wrapper" id="third">
-            <h2 class="osx">OS X</h2>
-            <input id="osxIn" placeholder="Paste Windows UNC here"></input>
-            <button id="osxBut">Go</button>
-            <p class="bad" id="osxError"></p>
-            <p>Linux Path:</p>
-            <div class="result">
-                <p class="lin" id="osxResultLin">&nbsp;</p>
-            </div>
-            <p>Windows Path:</p>
-            <div class="result">
-                <p class="win" id="osxResultWin">&nbsp;</p>
-            </div>
-        </div>
-<<<<<<< HEAD
-        <!-- Multi -->
-    <!-- <div class="wrapper" id="four">
-            <h2>OS X</h2>
-            <input id="allIn" placeholder="Paste path here"></input>
-            <button id="allBut">Go</button>
-            <p class="bad" id="allError"></p>
-            <p>Windows Path:</p>
-            <p id="allResultWin">&nbsp;</p>
-            <p>Linux Path:</p>
-            <p id="allResultLin">&nbsp;</p>
-            <p>OSX Path:</p>
-            <p id="allResultOSX">&nbsp;</p>
-        </div>
-=======
->>>>>>> origin/master
-        -->
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript" src="path_changer.js"></script>
