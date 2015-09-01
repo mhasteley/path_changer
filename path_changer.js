@@ -12,7 +12,7 @@ function checkerAll() {
 	var winLength = alpha.length;
 	var linMatch = alpha.indexOf(alpha.match(/[A-Za-z0-9]*\:\/\/[A-Za-z0-9]/));
 	var osxMatch = alpha.indexOf(alpha.match(/\/volumes\/[A-Za-z0-9]*/));
-	var pathStart = ["\\\\", "\\", "smb\://", "\/volumes\/"];
+	var pathStart = ["\\\\", "\\", "smb\:\/\/sol\/", "\/volumes\/"];
 	var test = function test(platform) {
 		var gamma = $("#allIn").val().toLowerCase();
 		var results = ["#allResultWin", "#allResultLin", "#allResultOSX"];
@@ -30,7 +30,7 @@ function checkerAll() {
 		test(/\\\\[A-Za-z0-9]*\\/);
 	}
 	else if (linMatch == 0) {
-		test(/[A-Za-z0-9]*\:\/\//);
+		test(/[A-Za-z0-9]*\:\/\/sol\//);
 	}
 	else if (osxMatch == 0) {
 		test(/\/volumes\//);
