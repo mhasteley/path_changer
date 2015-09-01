@@ -12,12 +12,12 @@ function checkerAll() {
 	var winLength = alpha.length;
 	var linMatch = alpha.indexOf(alpha.match(/[A-Za-z0-9]*\:\/\/[A-Za-z0-9]/));
 	var osxMatch = alpha.indexOf(alpha.match(/\/volumes\/[A-Za-z0-9]*/));
-	var pathStart = ["\\\\", "\\", "smb\:\/\/sol\/", "\/volumes\/"];
+	var pathStart = ["\\\\", "\\", "smb\:\/\/", "\/volumes\/"];
 	var test = function test(platform) {
 		var gamma = $("#allIn").val().toLowerCase();
 		var results = ["#allResultWin", "#allResultLin", "#allResultOSX"];
 		var resWin = gamma.replace(platform, pathStart[0].concat(beta).concat(pathStart[1])).replace(/\//g, "\\");
-		var resLin = gamma.replace(platform, pathStart[2]).replace(/\\/g, "\/");
+		var resLin = gamma.replace(platform, pathStart[2].concat(beta).concat(pathStart[1])).replace(/\\/g, "\/");
 		var resOSX = gamma.replace(platform, pathStart[3]).replace(/\\/g, "\/");
 		$(results[0]).html(resWin);
 		$(results[1]).html(resLin);
@@ -30,7 +30,7 @@ function checkerAll() {
 		test(/\\\\[A-Za-z0-9]*\\/);
 	}
 	else if (linMatch == 0) {
-		test(/[A-Za-z0-9]*\:\/\/sol\//);
+		test(/[A-Za-z0-9]*\:\/\//);
 	}
 	else if (osxMatch == 0) {
 		test(/\/volumes\//);
