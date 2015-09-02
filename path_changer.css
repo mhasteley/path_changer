@@ -93,3 +93,7 @@ div.bad.overlay {
 	margin: 0px 0px 5px 0px;
 	width:20%;
 }
+
+div.hidden {
+	display: none;
+	}
