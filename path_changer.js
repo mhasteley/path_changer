@@ -6,13 +6,13 @@ var itWentBadly = function () {
 var checkerAll = function () {
 	var alpha = $("#allIn").val();
 	var beta = $("#windowsServer").val().toLowerCase();
-	var winMatch = alpha.indexOf(alpha.match(/\\\\\S*/i));
-	var linMatch = alpha.indexOf(alpha.match(/\S+\:\/\/\S*/i));
-	var osxMatch = alpha.indexOf(alpha.match(/\/volumes\/\S*/i));
+	var winMatch = alpha.indexOf(alpha.match(/[\\|\/]{2}[^\\\/]+[\\\/].*/i));
+	var linMatch = alpha.indexOf(alpha.match(/[^\\\/\s]+\:[\\|\/]{2}[^\\\/]+.*/i));
+	var osxMatch = alpha.indexOf(alpha.match(/[\\|\/]volumes[\\|\/].*/i));
 	var results = ["#allResultWin", "#allResultLin", "#allResultOSX"];
 	var osxReplace = function (platform) {
 		var resWin = alpha.replace(platform, "\\\\" + beta + "\\" + "$2").replace(/\//g, "\\").replace(/\%20/g, " ");
-		var resLin = alpha.replace(platform, "smb:\/\/" + beta + "\/" + "$2").replace(/\\/g, "\/").replace(/\%20/g, " ");
+		var resLin = alpha.replace(platform, "smb:\/\/" + beta + "\\" + "$2").replace(/\\/g, "\/").replace(/\%20/g, " ");
 		var resOSX = alpha.replace(platform, "\/volumes\/$2").replace(/\\/g, "\/").replace(/\%20/g, " ");
 		$(results[0]).html(resWin);
 		$(results[1]).html(resLin);
@@ -31,13 +31,13 @@ var checkerAll = function () {
 		$("div.bad.overlay.active").removeClass("overlay").removeClass("active");
 	}
 	if (winMatch == 0) {
-		otherReplace(/(\\\\)([^\\\/]*)(\S*)/i);
+		otherReplace(/([\\|\/]{2})([^\\\/]+\s*)([\\|\/].*)/i);
 	}
 	else if (linMatch == 0) {
-		otherReplace(/(\S+\:\/\/)([^\\\/]*)(\S*)/i);
+		otherReplace(/([^\\\/]+\:[\\|\/]{2})([^\\\/]+\s*)(.*)/i);
 	}
 	else if (osxMatch == 0) {
-		osxReplace(/(\/\S+\/)(\S*)/i);
+		osxReplace(/([\\|\/][^\\\/]+\s*[\\|\/])(.*)/i);
 	}
 	else {
 		itWentBadly();
