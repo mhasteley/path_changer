@@ -22,7 +22,7 @@ var checkerAll = function () {
 	};
 	var otherReplace = function (platform) {
 		var resWin = alpha.replace(platform, "\\\\$2$3").replace(/\//g, "\\").replace(/\%20/g, " ");
-		var resLin = alpha.replace(platform, "smb:\/\/$2$3").replace(/\\/g, "\/").replace(/\%20/g, " ");
+		var resLin = alpha.replace(platform, "smb:\/\/$2$3").replace(/\\/g, "\/").replace(/\s/g, "%20");
 		var resOSX = alpha.replace(platform, "\/volumes$3").replace(/\\/g, "\/").replace(/\%20/g, " ");
 		$(results[0]).html(resWin);
 		$(results[1]).html(resLin);
