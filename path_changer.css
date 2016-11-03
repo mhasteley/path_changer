@@ -24,15 +24,34 @@ p {
 }
 
 h1 {
-	font-size: 2.0em;
+	font-weight: normal;
+	font-size: 3.0em;
+	margin: 0 0 0.65em 0;
 }
 
-h1 {
-	font-size: 3.0em;
+h2 {
+	font-size: 1.2em;
+	font-weight: normal;
+}
+
+input {
+	margin: 0 0 15px 0;
+	border: none;
+}
+
+button {
+	border: none;
+	border-bottom: 0.2em solid #666666;
+	background: #dddddd;
 }
 
 input, button {
 	padding: 1.0em;
+	width: 100%;
+}
+
+input#allIn, button {
+	width: 100%;
 }
 
 .bad p {
@@ -64,11 +83,10 @@ input, button {
 }
 
 .wrapper {
-	float: left;
-	margin: 5%;
-	width: 80%;
+	width: 100%;
 	padding: 5%;
-	background-color: #eeeeee;
+	border: 10px solid #ffffff;
+	background-color: #efefef;
 	text-align: left;
 }
 
@@ -79,7 +97,7 @@ input.result {
 }
 
 input.active {
-	background-color: #ffffff;
+	background-color: #dddddd;
 	border: 0;
 	border-bottom: 0.2em solid #888888;
 	display: block !important;
@@ -92,20 +110,20 @@ input.selected {
 div.bad {
 	float: left;
 	position: relative;
-	width: 96%;
+	width: 100%;
 	padding: 2%;
 	z-index: 100;
 	margin: 2% 0px;
 	display: none;
 }
 
-div.bad.overlay {
-	background-color: rgba(0,0,0,0.1);
+div.active {
+	border: none;
+	display: block !important;
 }
 
-#windowsServer {
-	margin: 0px 0px 5px 0px;
-	width:20%;
+div.bad.overlay {
+	background-color: #fefefe;
 }
 
 div.hidden {
