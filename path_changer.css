@@ -60,15 +60,21 @@ input, button {
 	text-align: left;
 }
 
-div.result {
-	padding: 0.1em 1.0em;
+input.result {
+	padding: 1.0em;
 	display: none;
+	width: 50%;
 }
 
-div.active {
+input.active {
 	background-color: #ffffff;
+	border: 0;
 	border-bottom: 0.2em solid #888888;
 	display: block !important;
+}
+
+input.selected {
+	background-color: #0576fc;
 }
 
 div.bad {

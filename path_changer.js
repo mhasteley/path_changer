@@ -1,6 +1,6 @@
 var itWentBadly = function () {
 	$("div.bad").addClass("overlay").addClass("active");
-	$("div.result").removeClass("active");
+	$("input.result").removeClass("active");
 };
 
 var checkerAll = function () {
@@ -14,20 +14,20 @@ var checkerAll = function () {
 		var resWin = alpha.replace(platform, "\\\\" + beta + "\\" + "$2").replace(/\//g, "\\").replace(/\%20/g, " ");
 		var resLin = alpha.replace(platform, "smb:\/\/" + beta + "\\" + "$2").replace(/\\/g, "\/").replace(/\%20/g, " ");
 		var resOSX = alpha.replace(platform, "\/volumes\/$2").replace(/\\/g, "\/").replace(/\%20/g, " ");
-		$(results[0]).html(resWin);
-		$(results[1]).html(resLin);
-		$(results[2]).html(resOSX);
-		$("div.result").addClass("active");
+		$(results[0]).val(resWin);
+		$(results[1]).val(resLin);
+		$(results[2]).val(resOSX);
+		$("input.result").addClass("active");
 		$("div.bad.overlay.active").removeClass("overlay").removeClass("active");
 	};
 	var otherReplace = function (platform) {
 		var resWin = alpha.replace(platform, "\\\\$2$3").replace(/\//g, "\\").replace(/\%20/g, " ");
 		var resLin = alpha.replace(platform, "smb:\/\/$2$3").replace(/\\/g, "\/").replace(/\s/g, "%20");
 		var resOSX = alpha.replace(platform, "\/volumes$3").replace(/\\/g, "\/").replace(/\%20/g, " ");
-		$(results[0]).html(resWin);
-		$(results[1]).html(resLin);
-		$(results[2]).html(resOSX);
-		$("div.result").addClass("active");
+		$(results[0]).val(resWin);
+		$(results[1]).val(resLin);
+		$(results[2]).val(resOSX);
+		$("input.result").addClass("active");
 		$("div.bad.overlay.active").removeClass("overlay").removeClass("active");
 	}
 	if (winMatch == 0) {
@@ -56,14 +56,20 @@ var keyPresses = function enterKey(e) {
 		}
 		else {
 			$("div.server").addClass("hidden");
-			if ($("p#allResultWin").html().length > 0) {
-				$("div.result").removeClass("active");
+			if ($("input#allResultWin").html().length > 0) {
+				$("input.result").removeClass("active");
 			}
 		}
 	}
 };
 
-$("#allBut").click(checkerAll);
+$("input.result").on("click", function () {
+	$(this).focus().select().addClass("selected");
+}).on("blur", function () {
+	$(this).removeClass('selected');
+});
+
+$("#allBut").on("click", checkerAll);
 
 $("#allIn").keyup(keyPresses);
 
