@@ -55,12 +55,12 @@ input#allIn, button {
 }
 
 .bad p {
-	color: red;
-	font-size: 0.8em;
+	color: #ffffff;
+	font-size: 0.9em;
 	margin: 0.4em;	
 }
 
-.result p, input, button {
+.result input, input, button {
 	font-size: 1.0em;
 	font-weight: bold;
 }
@@ -77,6 +77,23 @@ input#allIn, button {
 	color: #aa00ee;	
 }
 
+p .win, p .lin, p .osx {
+	color: #ffffff;
+	padding: 0.4em 0.5em;
+}
+
+p .win {
+	background-color: #ff8300;
+}
+
+p .lin {
+	background-color: #ff0055;
+}
+
+p .osx {
+	background-color: #aa00ee;
+}
+
 .note {
 	font-size: 0.9em;
 	margin: 10px 0px 5px 0px;
@@ -90,17 +107,24 @@ input#allIn, button {
 	text-align: left;
 }
 
+input {
+	border: 0;
+	display: block !important;
+}
+
+input.result {
+	background-color: #dddddd;
+	border-bottom: 0.2em solid #888888;
+}
+
+input#allIn {
+	background-color: #ffffff;
+}
+
 input.result {
 	padding: 1.0em;
 	display: none;
 	width: 100%;
-}
-
-input.active {
-	background-color: #dddddd;
-	border: 0;
-	border-bottom: 0.2em solid #888888;
-	display: block !important;
 }
 
 input.selected {
@@ -108,24 +132,15 @@ input.selected {
 }
 
 div.bad {
-	float: left;
+	background-color: red;
 	position: relative;
 	width: 100%;
-	padding: 2%;
+	padding: 1%;
 	z-index: 100;
 	margin: 2% 0px;
-	display: none;
-}
-
-div.active {
-	border: none;
-	display: block !important;
-}
-
-div.bad.overlay {
-	background-color: #fefefe;
+	display: block;
 }
 
 div.hidden {
 	display: none;
-	}
+}

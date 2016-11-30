@@ -1,6 +1,6 @@
 var itWentBadly = function () {
-	$("div.bad").addClass("overlay").addClass("active");
-	$("input.result").removeClass("active");
+	$("div.bad").removeClass("hidden");
+	$("div.result").addClass("hidden");
 };
 
 var checkerAll = function () {
@@ -17,8 +17,8 @@ var checkerAll = function () {
 		$(results[0]).val(resWin);
 		$(results[1]).val(resLin);
 		$(results[2]).val(resOSX);
-		$("input.result").addClass("active");
-		$("div.bad.overlay.active").removeClass("overlay").removeClass("active");
+		$("div.result").removeClass("hidden");
+		$("div.bad").addClass("hidden");
 	};
 	var otherReplace = function (platform) {
 		var resWin = alpha.replace(platform, "\\\\$2$3").replace(/\//g, "\\").replace(/\%20/g, " ");
@@ -27,8 +27,8 @@ var checkerAll = function () {
 		$(results[0]).val(resWin);
 		$(results[1]).val(resLin);
 		$(results[2]).val(resOSX);
-		$("input.result").addClass("active");
-		$("div.bad.overlay.active").removeClass("overlay").removeClass("active");
+		$("div.result").removeClass("hidden");
+		$("div.bad").addClass("hidden");
 	}
 	if (winMatch == 0) {
 		otherReplace(/([\\|\/]{2})([^\\\/]+\s*)([\\|\/].*)/i);
@@ -57,7 +57,7 @@ var keyPresses = function enterKey(e) {
 		else {
 			$("div.server").addClass("hidden");
 			if ($("input#allResultWin").html().length > 0) {
-				$("input.result").removeClass("active");
+				$("div.server").addClass("hidden");
 			}
 		}
 	}
@@ -66,7 +66,7 @@ var keyPresses = function enterKey(e) {
 $("input.result").on("click", function () {
 	$(this).focus().select().addClass("selected");
 }).on("blur", function () {
-	$(this).removeClass('selected');
+	$(this).removeClass("selected");
 });
 
 $("#allBut").on("click", checkerAll);

@@ -17,21 +17,21 @@
             <input type="text" id="windowsServer" value="sol"></input>
         </div>
         <button type="button" id="allBut">Go</button>
-        <div class="bad">
+        <div class="bad hidden">
             <p id="allError">Error - this is the wrong syntax for a filesystem path, please one in the form <span class="win">"\\server\share\folder"</span>,
                 <span class="lin">"smb://server/share/folder"</span> or <span class="osx">"/volumes/share/folder"</span></p>
         </div>
-        <div class="win">
+        <div class="result win hidden">
             <p>Windows Path:</p>
             <input id="allResultWin" class="result win" readonly="readonly" value="">
             </input>
         </div>
-        <div class="lin">
+        <div class="result lin hidden">
             <p>SMB connect to server:</p>
             <input id="allResultLin" class="result lin" readonly="readonly" value="">
             </input>
         </div>
-        <div class="osx">
+        <div class="result osx hidden">
             <p>OSX Path:</p>
             <input  id="allResultOSX" class="result osx" readonly="readonly" value="">
             </input>
