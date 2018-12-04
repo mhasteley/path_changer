@@ -12,7 +12,7 @@ var checkerAll = function () {
 	var results = ["#allResultWin", "#allResultLin", "#allResultOSX"];
 	var osxReplace = function (platform) {
 		var resWin = alpha.replace(platform, "\\\\" + beta + "\\" + "$2").replace(/\//g, "\\").replace(/\%20/g, " ");
-		var resLin = alpha.replace(platform, "smb:\/\/" + beta + "\\" + "$2").replace(/\\/g, "\/").replace(/\%20/g, " ");
+		var resLin = alpha.replace(platform, "smb:\/\/" + beta + "\\" + "$2").replace(/\\/g, "\/").replace(/\s/g, "%20");
 		var resOSX = alpha.replace(platform, "\/volumes\/$2").replace(/\\/g, "\/").replace(/\%20/g, " ");
 		$(results[0]).val(resWin);
 		$(results[1]).val(resLin);
